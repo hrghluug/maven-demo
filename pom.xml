@@ -11,6 +11,7 @@
         <module>java-doc</module>
         <module>base64</module>
         <module>sfunction</module>
+        <module>idcard</module>
     </modules>
     <packaging>pom</packaging>
 
