@@ -1,5 +1,8 @@
 package com.x;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author xgh 2023/6/25
  */
@@ -19,6 +22,13 @@ public class IdCardValidator {
         if (idCard.length() != 18) {
             throw new IllegalArgumentException();
         }
+        return idCard.charAt(17) == getValidateChar(idCard);
+    }
+
+    public static char getValidateChar(String idCard) {
+        if (idCard.length() != 18) {
+            throw new IllegalArgumentException();
+        }
         char[] idChars = idCard.toCharArray();
         int sum = 0;
         for (int i = 0; i < 17; i++) {
@@ -28,10 +38,11 @@ public class IdCardValidator {
             }
             sum += (idChar - OFFSET) * WEIGHT[i];
         }
-        return idChars[17] == CHARS[sum % 11];
+        return CHARS[sum % 11];
     }
 
     public static void main(String[] args) {
-        System.out.println(legal("370683198901117657"));
+        //        System.out.println(legal("450721200102153217"));
+        System.out.println(List.class.isAssignableFrom(ArrayList.class));
     }
 }
